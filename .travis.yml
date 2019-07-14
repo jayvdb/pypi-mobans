@@ -41,8 +41,15 @@ stages:
   install: pip install moban>=0.0.4
   script: make upstreaming git-diff-check
 
+.foo: &foo
+  <<: *disable_global
+  python: 3.6
+  stage: moban
+  script: foo
+
 jobs:
   include:
+    - *foo
     - *moban
     - *lint
   allow_failures:
