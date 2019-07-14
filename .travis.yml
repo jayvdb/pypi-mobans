@@ -44,7 +44,8 @@ stages:
 .foo: &foo
   <<: *disable_global
   python: 3.6
-  stage: moban
+  stage: test
+  install: skip
   script: foo
 
 jobs:
